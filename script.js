@@ -1,9 +1,11 @@
 // Sign Up Form - Email address validation 
 const emailInput = document.getElementById("email");
 const emailInput2 = document.getElementById("email2");
+const confirmMessage = document.getElementById("confirm-message");
 const errorMessage = document.getElementById("error");
-const errorMessage2 = document.getElementById("error2");
+
 const submitBtn = document.querySelector(".submit-btn"); 
+
 
 submitBtn.addEventListener("click", (e)=> {
     // Prevent form from Submitting
@@ -21,5 +23,21 @@ submitBtn.addEventListener("click", (e)=> {
        
     }
 
+});
+
+submitBtn.addEventListener("click", (e) => {
+    // Prevent form from Submitting
+    e.preventDefault();
+    const add1 = emailInput.value;
+    const add2 = emailInput2.value;
+    
+    if(add1 === add2) {
+        confirmMessage.textContent= "Emails match!";
+        confirmMessage.style.color = "green";
+    } 
+    else {
+        confirmMessage.textContent = "Emails don't match!";
+        confirmMessage.style.color = "red";
+    }
 })
 
