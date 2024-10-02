@@ -1,6 +1,8 @@
 // Sign Up Form - Email address validation 
 const emailInput = document.getElementById("email");
+const emailInput2 = document.getElementById("email2");
 const errorMessage = document.getElementById("error");
+const errorMessage2 = document.getElementById("error2");
 const submitBtn = document.querySelector(".submit-btn"); 
 
 submitBtn.addEventListener("click", (e)=> {
@@ -16,6 +18,7 @@ submitBtn.addEventListener("click", (e)=> {
     else {
         errorMessage.textContent = "Please enter a valid email address.";
         errorMessage.style.color = "red";
+       
     }
 
 })
