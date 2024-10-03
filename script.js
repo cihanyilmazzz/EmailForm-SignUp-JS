@@ -22,7 +22,7 @@ const pwdLimit = 10;
 
 
 
-// Real time Email address validation
+// Real-time Email address validation
 emailInput.addEventListener("input", function() {
     if(emailPattern.test(emailInput.value)) {
         feedback.textContent = "This email address is valid";
@@ -66,7 +66,7 @@ submitBtn.addEventListener("click", (e)=> {
     }
 });
 
-// Email confirmation check
+// Real-time Email confirmation check
 emailInput2.addEventListener("input", (e) => {
     // Prevent form from Submitting
     e.preventDefault();
@@ -93,7 +93,7 @@ emailInput2.addEventListener("input", (e) => {
     }
 });
 
-
+// Real-time Password validation
 pwd.addEventListener("input", (e)=> {
     // Prevent form from Submitting
     e.preventDefault();
@@ -121,7 +121,7 @@ pwd.addEventListener("input", (e)=> {
     }
 
 });
-
+// Real-time Password confirmation check
 pwd2.addEventListener("input", (e) => {
     const password = pwd.value;
     const password2 = pwd2.value;
