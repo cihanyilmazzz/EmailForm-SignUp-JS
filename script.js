@@ -5,6 +5,8 @@ const emailInput2 = document.getElementById("email2");
 const submitBtn = document.querySelector(".submit-btn"); 
 const suggestionBox = document.getElementById("suggestion-box");
 const pwd = document.getElementById("pwd");
+const pwd2 = document.getElementById("pwd2");
+const pwdMessage = document.getElementById("pwd-message");
 const feedback = document.getElementById("email-feedback");
 const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
@@ -15,6 +17,9 @@ const charMessage = document.getElementById("char-message");
 
 // Email character limit
 const charLimit = 50;
+const pwdLimit = 8;
+
+
 
 // Real time Email address validation
 emailInput.addEventListener("input", function() {
@@ -88,3 +93,21 @@ emailInput2.addEventListener("input", (e) => {
 });
 
 
+pwd.addEventListener("input", (e)=> {
+    // Prevent form from Submitting
+    e.preventDefault();
+
+    const password = pwd.value;
+    const password2 = pwd2.value;
+
+     // Email character limit
+     if (password.length < 2) {
+        pwdMessage.textContent = "Password cannot exceed 8 characters";
+        charMessage.style.color = "#f29201";
+        pwd.value = pwd.value.substring(0, charLimit);
+    }
+    else {
+        pwdMessage.textContent = "Confirmed";
+    }
+
+})
