@@ -12,12 +12,13 @@ const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
 // Confirmation & Error message
 const confirmMessage = document.getElementById("confirm-message");
+const pwdconfirmMessage = document.getElementById("pwd-confirm-message");
 const errorMessage = document.getElementById("email-validation");
 const charMessage = document.getElementById("char-message");
 
 // Email character limit
 const charLimit = 50;
-const pwdLimit = 8;
+const pwdLimit = 10;
 
 
 
@@ -58,7 +59,7 @@ submitBtn.addEventListener("click", (e)=> {
     setTimeout(() => {
         errorMessage.style.display = "none";
         charMessage.style.display = "none";
-      }, "2000");
+      }, "6000");
     if(errorMessage.style.display == "none" || charMessage.style.display == "none") {
         errorMessage.style.display = "block";
         charMessage.style.display = "block";
@@ -85,7 +86,7 @@ emailInput2.addEventListener("input", (e) => {
     // Removing validation message
     setTimeout(() => {
         confirmMessage.style.display = "none";
-      }, "2000");
+      }, "6000");
 
     if(confirmMessage.style.display = "none") {
         confirmMessage.style.display = "block";
@@ -101,13 +102,46 @@ pwd.addEventListener("input", (e)=> {
     const password2 = pwd2.value;
 
      // Email character limit
-     if (password.length < 2) {
-        pwdMessage.textContent = "Password cannot exceed 8 characters";
-        charMessage.style.color = "#f29201";
-        pwd.value = pwd.value.substring(0, charLimit);
+     if (password.length < 8) {
+        
+        pwdMessage.textContent = "Password cannot be less than 8 or exceed 10 characters";
+        pwdMessage.style.color = "#f29201";
     }
     else {
         pwdMessage.textContent = "Confirmed";
+        pwdMessage.style.color = "snow"
+    }
+    // Removing validation message
+    setTimeout(() => {
+        pwdMessage.style.display = "none";
+      }, "6000");
+
+    if(pwdMessage.style.display = "none") {
+        pwdMessage.style.display = "block";
     }
 
+});
+
+pwd2.addEventListener("input", (e) => {
+    const password = pwd.value;
+    const password2 = pwd2.value;
+
+    // Email matching validation
+    if (password === password2) {
+        pwdconfirmMessage.textContent= "Passwords match";
+        pwdconfirmMessage.style.color = "white";
+    } 
+    else {
+        pwdconfirmMessage.textContent = "Password does not match!";
+        pwdconfirmMessage.style.color = "#f29201";
+    }
+
+    // Removing validation message
+    setTimeout(() => {
+        pwdconfirmMessage.style.display = "none";
+      }, "6000");
+
+    if(pwdconfirmMessage.style.display = "none") {
+        pwdconfirmMessage.style.display = "block";
+    }
 })
