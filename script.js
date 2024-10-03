@@ -19,12 +19,20 @@ const charLimit = 50;
 // Real time Email address validation
 emailInput.addEventListener("input", function() {
     if(emailPattern.test(emailInput.value)) {
-        feedback.textContent = "Valid email";
-        feedback.style.color = "green";
+        feedback.textContent = "This email address is valid";
+        feedback.style.color = "white";
     }
     else {
-        feedback.textContent = "Invalid email";
-        feedback.style.color = "red";
+        feedback.textContent = "This email address is invalid";
+        feedback.style.color = "#f29201";
+    }
+
+    // Removing validation message
+    setTimeout(() => {
+        feedback.style.display = "none";
+      }, "6000");
+    if(feedback.style.display == "none") {
+        feedback.style.display = "block";
     }
 });
 
@@ -37,6 +45,7 @@ submitBtn.addEventListener("click", (e)=> {
     // Email character limit
     if (emailLength > charLimit) {
         charMessage.textContent = "Email cannot exceed 50 characters";
+        charMessage.style.color = "#f29201";
         emailInput.value = emailLength.value.substring(0, charLimit);
     }
 
@@ -52,7 +61,7 @@ submitBtn.addEventListener("click", (e)=> {
 });
 
 // Email confirmation check
-submitBtn.addEventListener("click", (e) => {
+emailInput2.addEventListener("input", (e) => {
     // Prevent form from Submitting
     e.preventDefault();
     const add1 = emailInput.value;
@@ -60,12 +69,12 @@ submitBtn.addEventListener("click", (e) => {
     
     // Email matching validation
     if (add1 === add2) {
-        confirmMessage.textContent= "Emails match!";
-        confirmMessage.style.color = "green";
+        confirmMessage.textContent= "Email address match";
+        confirmMessage.style.color = "white";
     } 
     else {
-        confirmMessage.textContent = "Emails don't match!";
-        confirmMessage.style.color = "red";
+        confirmMessage.textContent = "Email address does not match!";
+        confirmMessage.style.color = "#f29201";
     }
 
     // Removing validation message
