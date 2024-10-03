@@ -8,6 +8,7 @@ const pwd = document.getElementById("pwd");
 const pwd2 = document.getElementById("pwd2");
 const pwdMessage = document.getElementById("pwd-message");
 const feedback = document.getElementById("email-feedback");
+const termButton = document.getElementById("term-button");
 const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
 // Confirmation & Error message
@@ -121,6 +122,7 @@ pwd.addEventListener("input", (e)=> {
     }
 
 });
+
 // Real-time Password confirmation check
 pwd2.addEventListener("input", (e) => {
     const password = pwd.value;
@@ -144,4 +146,4 @@ pwd2.addEventListener("input", (e) => {
     if(pwdconfirmMessage.style.display = "none") {
         pwdconfirmMessage.style.display = "block";
     }
-})
+});
